@@ -9,36 +9,46 @@ use Illuminate\Http\Request;
 
 class ProduitController extends Controller
 {
-
+    /**
+     * Retourne la liste de tous les produits avec leur catégorie associée.
+     */
     public function index()
     {
         return Produit::with('categorie')->get();
     }
 
-
+    /**
+     * Enregistre un nouveau produit après validation via ProduitRequest.
+     */
     public function store(ProduitRequest $request)
     {
         return Produit::create($request->all());
     }
 
-
+    /**
+     * Affiche les détails d’un produit spécifique.
+     */
     public function show(Produit $produit)
     {
         return $produit;
     }
 
-
+    /**
+     * Met à jour les informations d’un produit existant après validation.
+     */
     public function update(ProduitRequest $request, Produit $produit)
     {
         $produit->update($request->all());
         return $produit;
     }
-    
 
+    /**
+     * Supprime un produit de la base de données.
+     * Retourne une réponse JSON confirmant la suppression.
+     */
     public function destroy(Produit $produit)
     {
         $produit->delete();
         return response()->json(['message' => 'Supprimé avec succès']);
     }
-
 }
