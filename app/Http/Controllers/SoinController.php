@@ -7,11 +7,17 @@ use Illuminate\Http\Request;
 
 class SoinController extends Controller
 {
+    /**
+     * Retourne la liste de tous les soins.
+     */
     public function index()
     {
         return Soin::all();
     }
 
+    /**
+     * Enregistre un nouveau soin après validation des données.
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -22,11 +28,17 @@ class SoinController extends Controller
         return Soin::create($request->all());
     }
 
+    /**
+     * Affiche les détails d’un soin spécifique.
+     */
     public function show(Soin $soin)
     {
         return $soin;
     }
 
+    /**
+     * Met à jour les informations d’un soin existant avec validation.
+     */
     public function update(Request $request, Soin $soin)
     {
         $request->validate([
@@ -38,6 +50,10 @@ class SoinController extends Controller
         return $soin;
     }
 
+    /**
+     * Supprime un soin de la base de données.
+     * Retourne une réponse JSON confirmant la suppression.
+     */
     public function destroy(Soin $soin)
     {
         $soin->delete();
