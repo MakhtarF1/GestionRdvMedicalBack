@@ -8,28 +8,46 @@ use App\Models\Patient;
 
 class PatientController extends Controller
 {
+    /**
+     * Affiche la liste de tous les patients.
+     */
     public function index()
     {
         return Patient::all();
     }
 
+    /**
+     * Enregistre un nouveau patient dans la base de données.
+     * Les données sont validées via PatientRequest.
+     */
     public function store(PatientRequest $request)
     {
-        return patient::create($request->all());
+        return Patient::create($request->all());
     }
 
+    /**
+     * Affiche les détails d’un patient spécifique.
+     * Laravel injecte automatiquement l'instance du modèle Patient.
+     */
     public function show(Patient $patient)
     {
         return $patient;
     }
 
+    /**
+     * Met à jour les informations d’un patient.
+     * Les données sont validées via PatientRequest.
+     */
     public function update(PatientRequest $request, Patient $patient)
     {
-
         $patient->update($request->all());
         return $patient;
     }
 
+    /**
+     * Supprime un patient de la base de données.
+     * Retourne une réponse JSON de confirmation.
+     */
     public function destroy(Patient $patient)
     {
         $patient->delete();
