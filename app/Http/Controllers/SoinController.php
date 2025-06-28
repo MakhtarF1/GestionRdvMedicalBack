@@ -50,10 +50,7 @@ class SoinController extends Controller
         return $soin;
     }
 
-    /**
-     * Supprime un soin de la base de données.
-     * Retourne une réponse JSON confirmant la suppression.
-     */
+  
     public function destroy(Soin $soin)
     {
         $soin->delete();

@@ -44,10 +44,7 @@ class PatientController extends Controller
         return $patient;
     }
 
-    /**
-     * Supprime un patient de la base de données.
-     * Retourne une réponse JSON de confirmation.
-     */
+   
     public function destroy(Patient $patient)
     {
         $patient->delete();

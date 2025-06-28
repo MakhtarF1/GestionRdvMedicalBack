@@ -33,7 +33,9 @@ class ProduitController extends Controller
         return $produit;
     }
 
-   
+    /**
+     * Met à jour les informations d’un produit existant après validation.
+     */
     public function update(ProduitRequest $request, Produit $produit)
     {
         $produit->update($request->all());
