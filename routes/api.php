@@ -14,9 +14,10 @@ Route::get('/ping', function () {
     return response()->json(['message' => 'pong']);
 });
 
-// Route::apiResource('medecins', MedecinController::class);
-// Route::apiResource('categories', CategorieController::class);
-// Route::apiResource('soins', SoinController::class);
-Route::apiResource('patients', PatientController::class);
+Route::apiResource('medecins', MedecinController::class);
+Route::apiResource('categories', CategorieController::class);
 Route::apiResource('produits', ProduitController::class);
+// route de soin
+Route::apiResource('soins', SoinController::class);
+Route::apiResource('patients', PatientController::class);
 Route::apiResource('rendezVous', RendezVousController::class);
