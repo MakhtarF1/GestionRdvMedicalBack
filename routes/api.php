@@ -16,6 +16,7 @@ Route::get('/ping', function () {
 
 Route::apiResource('medecins', MedecinController::class);
 Route::apiResource('categories', CategorieController::class);
+// route de produits
 Route::apiResource('produits', ProduitController::class);
 // route de soin
 Route::apiResource('soins', SoinController::class);
