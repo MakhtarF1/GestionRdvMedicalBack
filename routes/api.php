@@ -21,4 +21,5 @@ Route::apiResource('produits', ProduitController::class);
 // route de soin
 Route::apiResource('soins', SoinController::class);
 Route::apiResource('patients', PatientController::class);
+// rendezvous
 Route::apiResource('rendezVous', RendezVousController::class);
